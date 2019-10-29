@@ -53,7 +53,7 @@ router.get("/:id", function(req, res) {
         console.log(err);
         res.redirect("/campgrounds");
       } else {
-        res.render("campgrounds/show", { campground: foundCampgrounds, currentUser: req.user });
+        res.render("campgrounds/show", { campground: foundCampgrounds });
       }
     });
 });

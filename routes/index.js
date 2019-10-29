@@ -19,6 +19,7 @@ router.post("/register", function(req, res) {
       return res.render("register");
     }
     passport.authenticate("local")(req, res, function() {
+      req.flash("succes", "You are signed up");
       res.redirect("/campgrounds");
     });
   });
@@ -39,14 +40,8 @@ router.post(
 
 router.get("/logout", function(req, res) {
   req.logOut();
+  req.flash("error", "You are logged out");
   res.redirect("/campgrounds");
 });
-
-function isLoggedIn(req, res, next) {
-  if (req.isAuthenticated()) {
-    return next();
-  }
-  res.redirect("/login");
-}
 
 module.exports = router;
