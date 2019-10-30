@@ -16,7 +16,8 @@ middlewareObj.checkOwnerCampground = function(req, res, next) {
       }
     });
   } else {
-    res.redirect("back");
+    req.flash("error", "Please log in first");
+    res.redirect("/login");
   }
 };
 
@@ -34,7 +35,8 @@ middlewareObj.checkOwnerComment = function(req, res, next) {
       }
     });
   } else {
-    res.redirect("back");
+    req.flash("error", "Please log in first");
+    res.redirect("/login");
   }
 };
 

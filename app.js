@@ -43,7 +43,7 @@ passport.deserializeUser(User.deserializeUser());
 app.use(function(req, res, next) {
   res.locals.currentUser = req.user;
   res.locals.error = req.flash("error");
-  res.locals.success = req.flash("succes");
+  res.locals.success = req.flash("success");
   next();
 });
 
@@ -51,12 +51,13 @@ app.use("/campgrounds", campgroundRoutes);
 app.use("/campgrounds/:id/comments", commentRoutes);
 app.use(indexRoutes);
 
-function isLoggedIn(req, res, next) {
-  if (req.isAuthenticated()) {
-    return next();
-  }
-  res.redirect("/login");
-}
+// function isLoggedIn(req, res, next) {
+//   if (req.isAuthenticated()) {
+//     return next();
+//   }
+//   req.flash("error", "You need to be logged in to do that.");
+//   res.redirect("/login");
+// }
 
 app.get("*", function(req, res) {
   res.send("Webpage not found, please return to the homepage");
