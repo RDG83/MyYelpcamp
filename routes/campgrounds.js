@@ -17,22 +17,14 @@ router.get("/", function(req, res) {
 
 // CREATE
 router.post("/", middleware.isLoggedIn, function(req, res) {
-  let newcampground = req.body.newcampground;
-  let newprice = req.body.newprice;
-  let newimage = req.body.newimg;
-  let newdescription = req.body.description;
   let author = {
-    id: req.user._id,
-    username: req.user.username
+    author: {
+      id: req.user._id,
+      username: req.user.username
+    }
   };
-  let newitem = {
-    name: newcampground,
-    price: newprice,
-    image: newimage,
-    description: newdescription,
-    author: author
-  };
-  Campground.create(newitem, function(err, addedCamp) {
+  Object.assign(req.body.campground, author);
+  Campground.create(req.body.campground, function(err, addedCamp) {
     if (err) {
       console.log(err);
     } else {
