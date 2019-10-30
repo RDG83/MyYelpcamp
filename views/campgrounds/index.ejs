@@ -14,7 +14,7 @@
     <% campgrounds.forEach(function(site){ %>
     <div class="col-md-3 col-sm-6">
       <div class="thumbnail">
-        <img src= <%=site.image %> alt="campsite" />
+        <a href="/campgrounds/<%= site._id %>"><img id="indeximg" src=<%=site.image %> alt="<%=site.name%>" /></a>
       </div>
       <div class="caption">
         <h4><%= site.name %></h4>
@@ -27,9 +27,6 @@
     </div>
     <% }) %>
   </div>
-
-  <br />
-  <a href="/">Back to homepage</a>
 </div>
 
 <% include ../partials/footer %>

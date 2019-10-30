@@ -1,5 +1,5 @@
 .thumbnail img {
-  width: 100%;
+  background-size: cover;
 }
 
 .thumbnail {
@@ -12,4 +12,8 @@
 
 .delete-form {
   display: inline;
+}
+
+#indeximg {
+  max-height: 30vh;
 }
