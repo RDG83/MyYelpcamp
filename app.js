@@ -22,7 +22,10 @@ require("dotenv").config();
 // });
 
 // Connect to Atlas DB
-mongoose.connect("mongodb+srv://sephdev:Sephdev83%21@cluster0-y6d4s.azure.mongodb.net/test?retryWrites=true&w=majority");
+mongoose.connect("mongodb+srv://sephdev:Sephdev83%21@cluster0-y6d4s.azure.mongodb.net/test?retryWrites=true&w=majority", {
+  useCreateIndex: true,
+  useNewUrlParser: true
+});
 
 app.set("view engine", "ejs");
 app.use(bodyParser.urlencoded({ extended: true }));
