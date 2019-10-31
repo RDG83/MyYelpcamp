@@ -62,9 +62,9 @@ app.get("*", function(req, res) {
   res.send("Webpage not found, please return to the homepage");
 });
 
-// var port = process.env.PORT || 3000;
-// app.listen(port, function() {
-//   console.log("Server now live and listening on " + port);
-// });
+var port = process.env.PORT || 3000;
+app.listen(port, function() {
+  console.log("Server now live and listening on " + port);
+});
 
-app.listen(process.env.PORT, process.env.IP);
+// app.listen(process.env.PORT, process.env.IP);
