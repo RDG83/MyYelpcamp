@@ -22,7 +22,7 @@ require("dotenv").config();
 // });
 
 // Connect to Atlas DB
-mongoose.connect("mongodb + srv://sephdev:process.env.DB_PASS@cluster0-y6d4s.azure.mongodb.net/test?retryWrites=true&w=majority", {
+mongoose.connect("mongodb + srv://sephdev:Sephdev83!@cluster0-y6d4s.azure.mongodb.net/test?retryWrites=true&w=majority", {
   useNewUrlParser: true,
   useCreateIndex: true
 });
