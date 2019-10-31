@@ -13,9 +13,6 @@ router.get("/register", function(req, res) {
 
 router.post("/register", function(req, res) {
   var newUser = new User({ username: req.body.username });
-  if (req.body.adminCode === "pasta123") {
-    newUser.isAdmin = true;
-  }
   User.register(newUser, req.body.password, function(err, user) {
     if (err) {
       req.flash("error", err.message);

@@ -14,12 +14,6 @@ const campgroundRoutes = require("./routes/campgrounds");
 const indexRoutes = require("./routes/index");
 const flash = require("connect-flash");
 
-// Connect to local DB
-// mongoose.connect("mongodb://localhost:27017/yelpcamp", {
-//   useNewUrlParser: true,
-//   useUnifiedTopology: true
-// });
-
 // Connect to Atlas DB
 mongoose.connect(process.env.DB_URL, {
   useCreateIndex: true,
