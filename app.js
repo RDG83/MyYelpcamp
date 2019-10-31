@@ -13,6 +13,7 @@ const commentRoutes = require("./routes/comments");
 const campgroundRoutes = require("./routes/campgrounds");
 const indexRoutes = require("./routes/index");
 const flash = require("connect-flash");
+require("dotenv").config();
 
 // Connect to local DB
 // mongoose.connect("mongodb://localhost:27017/yelpcamp", {
@@ -21,7 +22,7 @@ const flash = require("connect-flash");
 // });
 
 // Connect to Atlas DB
-mongoose.connect("mongodb+srv://sephdev:Sephdev83!@cluster0-y6d4s.azure.mongodb.net/test?retryWrites=true&w=majority", {
+mongoose.connect("mongodb+srv://sephdev:" + process.env.DB_PASS + "@cluster0-y6d4s.azure.mongodb.net/test?retryWrites=true&w=majority", {
   useCreateIndex: true,
   useNewUrlParser: true
 });
