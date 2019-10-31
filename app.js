@@ -13,11 +13,18 @@ const commentRoutes = require("./routes/comments");
 const campgroundRoutes = require("./routes/campgrounds");
 const indexRoutes = require("./routes/index");
 const flash = require("connect-flash");
+require("dotenv").config();
 
-// seedDB();
-mongoose.connect("mongodb://localhost:27017/yelpcamp", {
+// Connect to local DB
+// mongoose.connect("mongodb://localhost:27017/yelpcamp", {
+//   useNewUrlParser: true,
+//   useUnifiedTopology: true
+// });
+
+// Connect to Atlas DB
+mongoose.connect("mongodb + srv://sephdev:" + process.env.DB_PASS + "@cluster0-y6d4s.azure.mongodb.net/test?retryWrites=true&w=majority", {
   useNewUrlParser: true,
-  useUnifiedTopology: true
+  useCreateIndex: true
 });
 
 app.set("view engine", "ejs");
@@ -51,20 +58,11 @@ app.use("/campgrounds", campgroundRoutes);
 app.use("/campgrounds/:id/comments", commentRoutes);
 app.use(indexRoutes);
 
-// function isLoggedIn(req, res, next) {
-//   if (req.isAuthenticated()) {
-//     return next();
-//   }
-//   req.flash("error", "You need to be logged in to do that.");
-//   res.redirect("/login");
-// }
-
 app.get("*", function(req, res) {
   res.send("Webpage not found, please return to the homepage");
 });
 
-// app.listen(3000, function() {
-//   console.log("Server now live and listening on port 3000");
-// });
-
-app.listen(process.env.PORT, process.env.IP);
+var port = process.env.port || 3000;
+app.listen(port, function() {
+  console.log("Server now live and listening on " + port);
+});
