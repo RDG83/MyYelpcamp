@@ -13,7 +13,6 @@ const commentRoutes = require("./routes/comments");
 const campgroundRoutes = require("./routes/campgrounds");
 const indexRoutes = require("./routes/index");
 const flash = require("connect-flash");
-require("dotenv").config();
 
 // Connect to local DB
 // mongoose.connect("mongodb://localhost:27017/yelpcamp", {
