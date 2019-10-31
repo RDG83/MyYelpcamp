@@ -22,7 +22,7 @@ require("dotenv").config();
 // });
 
 // Connect to Atlas DB
-mongoose.connect("mongodb+srv://sephdev:" + process.env.DB_PASS + "@cluster0-y6d4s.azure.mongodb.net/test?retryWrites=true&w=majority", {
+mongoose.connect(process.env.DB_URL, {
   useCreateIndex: true,
   useNewUrlParser: true
 });
@@ -66,5 +66,3 @@ var port = process.env.PORT || 3000;
 app.listen(port, function() {
   console.log("Server now live and listening on " + port);
 });
-
-// app.listen(process.env.PORT, process.env.IP);
