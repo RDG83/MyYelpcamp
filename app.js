@@ -63,6 +63,8 @@ app.get("*", function(req, res) {
   res.send("Webpage not found, please return to the homepage");
 });
 
-app.listen(3000, function() {
-  console.log("Server now live and listening on port 3000");
-});
+// app.listen(3000, function() {
+//   console.log("Server now live and listening on port 3000");
+// });
+
+app.listen(process.env.PORT, process.env.IP);
