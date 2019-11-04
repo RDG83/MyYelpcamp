@@ -29,14 +29,10 @@ router.get("/login", function(req, res) {
   res.render("login");
 });
 
-router.post(
-  "/login",
-  passport.authenticate("local", {
-    successRedirect: "/campgrounds",
-    failureRedirect: "/login"
-  }),
-  function(req, res) {}
-);
+router.post("/login", passport.authenticate("local", { failureRedirect: "/login" }), function(req, res) {
+  req.flash("success", "You are logged in");
+  res.redirect("/campgrounds");
+});
 
 router.get("/logout", function(req, res) {
   req.logOut();
